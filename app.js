@@ -17,13 +17,21 @@ let url=api+city+","+country+"&units-metric"+key;
 fetch(`${url}`)
   .then((res) => res.json())
   .then((data) => {
+    
+   let result= "<h2> Weather for"+ data.name +","+data.sys.country+"</h2>"+
 
+         "<h2>longitude:"+ data[0].lon + "</h2>" +
 
-let result= "<h2> Weather for"+ data.name +","+data.sys.country+"</h2>"+
+          "<h2>latitude:"+ latitude=data[0].lat + "</h2>" +
+
         "<h2>Weather:"+ data.weather[0].main + "</h2>" +
+
         "<h2>Detail:"+ data.weather[0].description + "</h2>"+
+
         "<h2>Temperature:"+ data.main.temp + "&deg;C</h2>"+
+
         "<h2>Pressure:"+ data.main.pressure+ "</h2>"+
+        
         "<h2>Humidity:"+ data.main.humidity+ "</h2>"
 
          document.getElementById('desc').innerHTML= result;
@@ -53,4 +61,3 @@ let result= "<h2> Weather for"+ data.name +","+data.sys.country+"</h2>"+
 .catch((e)=>console.log(`Incorrect`))
 
 })
-
